@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:gridview_builder_parrot_app/done_order.dart';
 
 class ConfirmOrder extends StatelessWidget {
   const ConfirmOrder({super.key});
@@ -32,7 +34,7 @@ class ConfirmOrder extends StatelessWidget {
         ),
         title: Center(
           child: Text(
-            'Pets ',
+            'Parrots',
             style: TextStyle(
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -56,106 +58,131 @@ class ConfirmOrder extends StatelessWidget {
           ),
         ],
       ),
-      body: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Container(
-                width: 400,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 36, 34, 49),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.white, width: 2),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          height: 37,
-                          width: 37,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 2),
-                          ),
-                          child: Icon(
-                            Icons.favorite,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Image.asset(
-                        'assets/ma1.png',
-                        height: 400,
-                        width: 200,
-                      ),
-                      Text(
-                        'macwo',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Price 80k',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 50,
-              width: 100,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Container(
               decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.7),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.white)),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (contex) {
-                      return ConfirmOrder();
-                    },
+                  color: Color.fromARGB(255, 36, 34, 49),
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 2,
                   ),
-                );
-              },
-              child: Container(
-                height: 50,
-                width: 180,
-                decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.white)),
-                child: Center(
-                  child: Text(
-                    'BUY NOW',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      'Name',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
+                  Image.asset('assets/1.png'),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 60,
+            width: 150,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 36, 34, 49),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.white, width: 2),
+            ),
+            child: Center(
+              child: Text(
+                'Single or Pair',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 36, 34, 49),
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '1',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 36, 34, 49),
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '2',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (contex) {
+                    return DoneOrder();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              height: 60,
+              width: 250,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 36, 34, 49),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.white, width: 2),
+              ),
+              child: Center(
+                child: Text(
+                  'BUY NOW',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

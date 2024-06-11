@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:gridview_builder_parrot_app/confirm_order.dart';
 
 class GVbuilder extends StatelessWidget {
   const GVbuilder({super.key});
@@ -59,38 +62,114 @@ class GVbuilder extends StatelessWidget {
           ),
         ],
       ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 1 / 1.5,
-        ),
-        itemCount: 4,
-        itemBuilder: (contex, index) {
-          return Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(color: Colors.white),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/1.png',
-                      height: 200,
-                      width: 100,
+      body: Expanded(
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 1 / 1.7,
+            mainAxisExtent: 400,
+          ),
+          itemCount: 4,
+          itemBuilder: (contex, index) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 36, 34, 49),
+                        border: Border.all(color: Colors.white, width: 2),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
+                              height: 35,
+                              width: 35,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 36, 34, 49),
+                                  border:
+                                      Border.all(color: Colors.white, width: 2),
+                                  shape: BoxShape.circle),
+                              child: Icon(
+                                Icons.favorite,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Image.asset(
+                          'assets/1.png',
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'Name',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            'Name',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        )
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                width: 100,
-                decoration: BoxDecoration(color: Colors.white),
-              ),
-            ],
-          );
-        },
+                SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (contex) {
+                          return ConfirmOrder();
+                        },
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 36, 34, 49),
+                      border: Border.all(color: Colors.white, width: 2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'BUY NOW',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
