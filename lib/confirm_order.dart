@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gridview_builder_parrot_app/done_order.dart';
 
 class ConfirmOrder extends StatelessWidget {
-  const ConfirmOrder({super.key});
+  ConfirmOrder(
+      {super.key,
+      required this.image,
+      required this.name,
+      required this.price});
+
+  final name;
+  final image;
+  final price;
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +82,24 @@ class ConfirmOrder extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Text(
-                      'Name',
+                      name,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Image.asset('assets/1.png'),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      price,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Image.asset(image),
                 ],
               ),
             ),

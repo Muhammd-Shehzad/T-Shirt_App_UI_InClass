@@ -1,10 +1,36 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gridview_builder_parrot_app/confirm_order.dart';
+import 'package:gridview_builder_parrot_app/favr.dart';
 
-class GVbuilder extends StatelessWidget {
-  const GVbuilder({super.key});
+class GVbuilder extends StatefulWidget {
+  GVbuilder({super.key});
+
+  @override
+  State<GVbuilder> createState() => _GVbuilderState();
+}
+
+class _GVbuilderState extends State<GVbuilder> {
+  List Images = [
+    'assets/1.png',
+    'assets/african.png',
+    'assets/bluefisher.png',
+    'assets/goldenfinch.png',
+    'assets/grey_coc.png',
+    'assets/ma1.png',
+    'assets/paral.png'
+  ];
+
+  List Name = [
+    'Ring Nack',
+    'African Grey',
+    'Blue Fishr',
+    'Golden Finch',
+    'Grey Cocktail',
+    'Blue Macow',
+    'Charkol Cocktail'
+  ];
+
+  List Price = ['Rs:5k', 'Rs:40k', '5k', 'Rs:8k', 'Rs:2k', 'Rs:1Lac', 'Rs:3k'];
 
   @override
   Widget build(BuildContext context) {
@@ -68,10 +94,10 @@ class GVbuilder extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            childAspectRatio: 1 / 1.7,
-            mainAxisExtent: 400,
+            childAspectRatio: 2 / 1.7,
+            mainAxisExtent: 450,
           ),
-          itemCount: 4,
+          itemCount: 7,
           itemBuilder: (contex, index) {
             return Column(
               children: [
@@ -84,33 +110,17 @@ class GVbuilder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                              height: 35,
-                              width: 35,
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 36, 34, 49),
-                                  border:
-                                      Border.all(color: Colors.white, width: 2),
-                                  shape: BoxShape.circle),
-                              child: Icon(
-                                Icons.favorite,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
+                        favorite(),
                         Image.asset(
-                          'assets/1.png',
+                          Images[index],
+                          height: 150,
+                          width: 180,
                         ),
                         SizedBox(
                           height: 8,
                         ),
                         Text(
-                          'Name',
+                          Name[index],
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
@@ -119,7 +129,7 @@ class GVbuilder extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(5),
                           child: Text(
-                            'Name',
+                            Price[index],
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -142,7 +152,11 @@ class GVbuilder extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (contex) {
-                          return ConfirmOrder();
+                          return ConfirmOrder(
+                            image: Images[index],
+                            name: Name[index],
+                            price: Price[index],
+                          );
                         },
                       ),
                     );
