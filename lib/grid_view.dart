@@ -95,7 +95,7 @@ class _GVbuilderState extends State<GVbuilder> {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             childAspectRatio: 2 / 1.7,
-            mainAxisExtent: 450,
+            mainAxisExtent: 500,
           ),
           itemCount: 7,
           itemBuilder: (contex, index) {
@@ -113,8 +113,10 @@ class _GVbuilderState extends State<GVbuilder> {
                         favorite(),
                         Image.asset(
                           Images[index],
-                          height: 150,
-                          width: 180,
+                          // height: 150,
+                          height: ScreenHeight * .3,
+                          width: ScreenWidth * .3,
+                          // width: 180,
                         ),
                         SizedBox(
                           height: 8,

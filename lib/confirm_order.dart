@@ -99,7 +99,11 @@ class ConfirmOrder extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Image.asset(image),
+                  Image.asset(
+                    image,
+                    height: 200,
+                    width: 200,
+                  ),
                 ],
               ),
             ),
